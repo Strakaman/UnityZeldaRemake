@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class UnawareWalk : MonoBehaviour {
     public float moveCountdown = 5f;
     public Vector2 destination;
@@ -13,6 +15,8 @@ public class UnawareWalk : MonoBehaviour {
     private float _endTimer;
     private Transform _transform;
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private readonly float DISABLE_TIMER = 10000f;
 
     // Use this for initialization
@@ -21,6 +25,9 @@ public class UnawareWalk : MonoBehaviour {
         _endTimer = DISABLE_TIMER;
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        _animator.enabled = false;
     }
     
     // Update is called once per frame
@@ -33,12 +40,36 @@ public class UnawareWalk : MonoBehaviour {
             Vector2 dir = GetRandom2DDirection();
             velocity = dir;
 
+            // Set animation
+            if (Vector2.down == velocity)
+            {
+                _animator.SetInteger("walkDirection", 0);
+                _spriteRenderer.flipX = false;
+            }
+            else if (Vector2.up == velocity)
+            {
+                _animator.SetInteger("walkDirection", 1);
+                _spriteRenderer.flipX = false;
+            }
+            else if (Vector2.left == velocity)
+            {
+                _animator.SetInteger("walkDirection", 2);
+                _spriteRenderer.flipX = false;
+            }
+            else if (Vector2.right == velocity)
+            {
+                _animator.SetInteger("walkDirection", 2);
+                _spriteRenderer.flipX = true;
+            }
+
+            _animator.enabled = true;
             _startTimer = DISABLE_TIMER; // "disable" start timer
             _endTimer = moveTime + Random.value; // fuzz the timers a bit
         }
 
         if (_endTimer < 0)
         {
+            _animator.enabled = false;
             velocity = new Vector2();
             _startTimer = moveCountdown + Random.value; // fuzz the timers a bit
             _endTimer = DISABLE_TIMER;
