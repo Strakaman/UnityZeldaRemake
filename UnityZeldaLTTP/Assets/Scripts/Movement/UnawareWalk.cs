@@ -5,12 +5,10 @@
 [RequireComponent(typeof(Animator))]
 public class UnawareWalk : MonoBehaviour {
     public float moveCountdown = 5f;
-    public Vector2 destination;
     public float moveTime = 3f;
-    public Vector2 velocity;
+    public float speed = 15f;
 
-    public float speed = 0.25f;
-
+    private Vector2 appliedForce;
     private float _startTimer;
     private float _endTimer;
     private Transform _transform;
@@ -38,29 +36,8 @@ public class UnawareWalk : MonoBehaviour {
         if (_startTimer < 0)
         {
             Vector2 dir = GetRandom2DDirection();
-            velocity = dir;
-
-            // Set animation
-            if (Vector2.down == velocity)
-            {
-                _animator.SetInteger("walkDirection", 0);
-                _spriteRenderer.flipX = false;
-            }
-            else if (Vector2.up == velocity)
-            {
-                _animator.SetInteger("walkDirection", 1);
-                _spriteRenderer.flipX = false;
-            }
-            else if (Vector2.left == velocity)
-            {
-                _animator.SetInteger("walkDirection", 2);
-                _spriteRenderer.flipX = false;
-            }
-            else if (Vector2.right == velocity)
-            {
-                _animator.SetInteger("walkDirection", 2);
-                _spriteRenderer.flipX = true;
-            }
+            appliedForce = dir * speed;
+            _rigidbody.AddForce(appliedForce);
 
             _animator.enabled = true;
             _startTimer = DISABLE_TIMER; // "disable" start timer
@@ -70,15 +47,10 @@ public class UnawareWalk : MonoBehaviour {
         if (_endTimer < 0)
         {
             _animator.enabled = false;
-            velocity = new Vector2();
+            _rigidbody.AddForce(-appliedForce);
             _startTimer = moveCountdown + Random.value; // fuzz the timers a bit
             _endTimer = DISABLE_TIMER;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        _rigidbody.MovePosition(_rigidbody.position + velocity * Time.fixedDeltaTime * speed);
     }
 
     private static System.Random _randomGenerator = new System.Random();
