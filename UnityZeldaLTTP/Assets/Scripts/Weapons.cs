@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sword : MonoBehaviour {
+/* 
+public Transform muzzle;
+public Projectile projectile;
+public float msBetweenShots=100;
+public float muzzleVelocity=35;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public void Shoot(){
+	Projectile newProjectile = Instantiate (projectile, muzzle.position, muzzle.rotation) as Projectile;
+	newProjectile.setSpeed (muzzleVeloicty);
 }
+
+
+*/
+}
+ 
