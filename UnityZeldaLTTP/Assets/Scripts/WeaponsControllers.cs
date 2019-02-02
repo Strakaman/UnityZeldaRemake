@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour {
 
 	//public Transform weaponHold;
-	//public Gun startingWeapon;
+	//public Weapon startingWeapon;
 	//Weapon equippedWeapon;
 	//void Start () {
 	//	if (startingWeapon != null) {
@@ -18,9 +18,13 @@ public class WeaponController : MonoBehaviour {
 	//	if (equippedWeapon != null) {
 	//		DestroyWeapon(equippedWeapon.gameObject);
 	//	}
-	//	equippedGun = Instantiate (weaponToEquip, weaponHold.position, weaponHold.rotation) as Weapon;
-	//	equippedWeapon.transform.parent =weaponHold;
-
+	//	equippedWeapon = Instantiate (weaponToEquip, weaponHold.position, weaponHold.rotation) as Weapon;
+	//	equippedWeapon.transform.parent = weaponHold;
+	 /*  public void Shoot() {
+		  if (equippedWeapon != null) {
+			  equippedWeapon.Shoot;
+		  }
+	 }*/
 	//}
 
 }

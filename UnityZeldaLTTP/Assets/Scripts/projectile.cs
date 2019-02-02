@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-
+/* 
 	float speed = 10;
 
 	public void setSpeed (float newSpeed ) {
@@ -13,5 +13,5 @@ public class Projectile : MonoBehaviour {
 	
 	void Update () {
 		transform.Translate(Vector3.forward = Time.deltaTime * speed);
-	}
+	}*/
 }
