@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PurpleSwordSoldier
+  m_Controller: {fileID: 9100000, guid: 0829912eb829d44d1bb4b537564b7b2f, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 582c3ed03a1724d81aa9f01dc3d3ca13, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4f828a9919d02416bb2d4095d0554f87, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4e82f2e7965954e028d63fb5fb039746, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dddaaf9dd5003471e945be00cf1c8857, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a4644e60feec84258bab934cf03f5b2e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3c2015fec902b4d738052dce5bd44594, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 46a4af2edf75344d2b334031f4da8fcf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2a4b5b7e6aba8411d867d81542ff8b3d, type: 2}
