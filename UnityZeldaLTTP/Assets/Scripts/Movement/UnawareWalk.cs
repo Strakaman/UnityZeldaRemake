@@ -19,7 +19,7 @@ public class UnawareWalk : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _startTimer = moveCountdown + Random.value; // fuzz the timers a bit
+        _startTimer = moveCountdown * Random.value; // fuzz the initial timer
         _endTimer = DISABLE_TIMER;
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -41,14 +41,14 @@ public class UnawareWalk : MonoBehaviour {
 
             _animator.enabled = true;
             _startTimer = DISABLE_TIMER; // "disable" start timer
-            _endTimer = moveTime + Random.value; // fuzz the timers a bit
+            _endTimer = moveTime * Random.value; // fuzz the timers a bit
         }
 
         if (_endTimer < 0)
         {
             _animator.enabled = false;
             _rigidbody.AddForce(-appliedForce);
-            _startTimer = moveCountdown + Random.value; // fuzz the timers a bit
+            _startTimer = moveCountdown * Random.value; // fuzz the timers a bit
             _endTimer = DISABLE_TIMER;
         }
     }
