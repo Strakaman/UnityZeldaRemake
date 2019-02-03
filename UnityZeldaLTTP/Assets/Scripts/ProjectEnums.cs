@@ -12,3 +12,8 @@ public enum SoundClipType
     Death,
 }
 
+public enum CameraMode
+{
+    OverworldCam,
+    DungeonCam
+}
