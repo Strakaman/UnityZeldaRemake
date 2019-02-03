@@ -19,6 +19,7 @@ public class PlayerVelocityToAnimation : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        GameData.RegisterPlayerObj(gameObject);
     }
 
     // Update is called once per frame
@@ -76,10 +77,15 @@ public class PlayerVelocityToAnimation : MonoBehaviour
             //_spriteRenderer.flipX = true;
         }
 
+        if (moving == true)
+        {
+            _rigidBody.MovePosition(_rigidBody.position + (velocity * Time.fixedDeltaTime* 14));
+        }
     }
 
+    /*
     private void FixedUpdate()
     {
         _rigidBody.MovePosition(_rigidBody.position + _rigidBody.velocity * Time.fixedDeltaTime);
-    }
+    }*/
 }
