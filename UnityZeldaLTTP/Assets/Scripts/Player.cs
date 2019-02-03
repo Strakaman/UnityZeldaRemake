@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
             Vector3 point = ray.GetPoint(rayDistance);
             Debug.DrawLine(ray.origin, point, Color.red);
             //Debug.DrawRay(ray.origin,ray.direction * 100,Color.red);
-            controller.LookAt(point);
+            //controller.LookAt(point);
         }
     }
 }

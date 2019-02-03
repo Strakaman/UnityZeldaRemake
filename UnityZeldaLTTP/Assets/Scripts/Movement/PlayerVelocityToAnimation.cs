@@ -28,6 +28,17 @@ public class PlayerVelocityToAnimation : MonoBehaviour
         Vector2 velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         //Vector2 velocity = _rigidBody.velocity;
 
+        if (Input.GetButtonDown("Attack"))
+        {
+            attack = true;
+            animator.SetBool("isAttacking", true);
+        }
+        if (Input.GetButtonUp("Attack"))
+        {
+            attack = false;
+            animator.SetBool("isAttacking", false);
+        }
+
         if (velocity == Vector2.zero)
         {
             moving = false;
@@ -64,16 +75,7 @@ public class PlayerVelocityToAnimation : MonoBehaviour
             animator.SetInteger("Direction", 3);
             //_spriteRenderer.flipX = true;
         }
-        if (Input.GetButtonDown("Attack"))
-        {
-            attack = true;
-            animator.SetBool("isAttacking", true);
-        }
-        if (Input.GetButtonUp("Attack"))
-        {
-            attack = false;
-            animator.SetBool("isAttacking", false);
-        }
+
     }
 
     private void FixedUpdate()
