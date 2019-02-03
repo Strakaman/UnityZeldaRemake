@@ -7,7 +7,22 @@ using UnityEngine;
 
 static class GameData
 {
-    public static GameObject playerRefObj;
+    private static GameObject player;
+    public static GameObject playerRefObj
+    {
+        get
+        {
+            if (player == null)
+            {
+            if (GameObject.FindObjectOfType<Player>() != null)
+            {
+                player = GameObject.FindObjectOfType<Player>().gameObject;
+            }
+            }
+            return player;
+        }
+        set { player = value; }
+    }
 
     public static void RegisterPlayerObj(GameObject go)
     {
