@@ -26,10 +26,10 @@ public class PurpleSwordSoldierController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        _sightFilter.layerMask = LayerMask.GetMask(TagStrings.ENVIRONMENT_LAYER_NAME);
+        _sightFilter.layerMask = LayerMask.GetMask(ProjectTagStrings.ENVIRONMENT_LAYER_NAME);
         _sightFilter.useLayerMask = true;
 
-        _player = GameObject.FindGameObjectWithTag(TagStrings.PLAYER_TAG_NAME);
+        _player = GameObject.FindGameObjectWithTag(ProjectTagStrings.PLAYER_TAG_NAME);
         _moveToController = GetComponent<MoveTo>();
         _animator = GetComponent<Animator>();
         _unawareWalkController = GetComponent<UnawareWalk>();
@@ -94,6 +94,6 @@ public class PurpleSwordSoldierController : MonoBehaviour {
         }
 
         var playerVector = _player.transform.position - _transform.position;
-        return !Physics2D.Raycast(_transform.position, playerVector, playerVector.magnitude, LayerMask.GetMask(TagStrings.ENVIRONMENT_LAYER_NAME));
+        return !Physics2D.Raycast(_transform.position, playerVector, playerVector.magnitude, LayerMask.GetMask(ProjectTagStrings.ENVIRONMENT_LAYER_NAME));
     }
 }

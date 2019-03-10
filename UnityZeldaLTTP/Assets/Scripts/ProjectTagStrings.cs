@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class TagStrings
+public static class ProjectTagStrings
 {
     public static readonly string PLAYER_TAG_NAME = "Player";
     public static readonly string ENEMY_LAYER_NAME = "Enemies";
