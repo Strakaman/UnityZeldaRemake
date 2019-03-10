@@ -6,6 +6,8 @@ public class Weapons : MonoBehaviour {
 
 public Transform muzzle;
 public Projectile projectile;
+public Sprite weaponIcon;
+
 public float msBetweenShots=100;
 public float muzzleVelocity=35;
 
