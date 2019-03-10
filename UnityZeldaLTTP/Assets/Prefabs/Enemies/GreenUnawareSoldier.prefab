@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 95774020442207208}
   - component: {fileID: 114169266014603958}
   - component: {fileID: 114138057937286702}
+  - component: {fileID: 114729953793312758}
   m_Layer: 8
   m_Name: GreenUnawareSoldier
   m_TagString: Untagged
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976700129659344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,7 +82,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29, y: 0.27}
+    oldSize: {x: 1.8125, y: 1.6875}
     newSize: {x: 0.29, y: 0.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -119,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4437e2accd64bd1a520ab7aa95ad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityDebug: {x: 0, y: 0}
 --- !u!114 &114169266014603958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +134,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveCountdown: 5
   moveTime: 3
-  speed: 15
+  speed: 50
+--- !u!114 &114729953793312758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976700129659344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477c8d61cdd9e4f27a9ab78d88d61f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 2
+  health: 0
 --- !u!212 &212576499667770110
 SpriteRenderer:
   m_ObjectHideFlags: 1

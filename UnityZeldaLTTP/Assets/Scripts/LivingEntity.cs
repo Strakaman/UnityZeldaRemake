@@ -1,10 +1,9 @@
 using UnityEngine;
-using System.Collections;
 
 public class LivingEntity : MonoBehaviour, IDamageable {
 
-	public float startingHealth;
-	public float health { get; protected set; }
+	public int startingHealth;
+    public int health;
 	protected bool dead;
 
 	public event System.Action OnDeath;
@@ -13,12 +12,12 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 		health = startingHealth;
 	}
 
-	public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection) {
+	public virtual void TakeHit(int damage, Vector3 hitPoint, Vector3 hitDirection) {
 		// Do some stuff here with hit var
 		TakeDamage (damage);
 	}
 
-	public virtual void TakeDamage(float damage) {
+	public virtual void TakeDamage(int damage) {
 		health -= damage;
 		
 		if (health <= 0 && !dead) {
@@ -32,6 +31,6 @@ public class LivingEntity : MonoBehaviour, IDamageable {
 		if (OnDeath != null) {
 			OnDeath();
 		}
-		GameObject.Destroy (gameObject);
+        Destroy(gameObject);
 	}
 }

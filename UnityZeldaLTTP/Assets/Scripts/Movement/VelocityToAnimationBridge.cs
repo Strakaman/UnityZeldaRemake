@@ -8,6 +8,8 @@ public class VelocityToAnimationBridge : MonoBehaviour {
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
+    public Vector2 velocityDebug;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -20,6 +22,7 @@ public class VelocityToAnimationBridge : MonoBehaviour {
 	void Update ()
     {
         Vector2 velocity = _rigidBody.velocity;
+        velocityDebug = velocity;
         if (velocity == Vector2.zero)
         {
             return;

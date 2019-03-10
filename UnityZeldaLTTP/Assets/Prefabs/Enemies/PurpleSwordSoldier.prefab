@@ -25,6 +25,10 @@ GameObject:
   - component: {fileID: 95482903252153072}
   - component: {fileID: 114813203170243930}
   - component: {fileID: 114893238158481898}
+  - component: {fileID: 114647620505439444}
+  - component: {fileID: 114819929536885184}
+  - component: {fileID: 114156448365504958}
+  - component: {fileID: 114521721060960766}
   m_Layer: 8
   m_Name: PurpleSwordSoldier
   m_TagString: Untagged
@@ -39,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798363411978848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.006410137, y: 0.15093964, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,7 +85,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.27}
+    oldSize: {x: 2, y: 1.6875}
     newSize: {x: 0.29, y: 0.27}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -108,6 +112,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114156448365504958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798363411978848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50578b93d90e741e2bb1e3ec9c69768d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveCountdown: 5
+  moveTime: 3
+  speed: 50
+--- !u!114 &114521721060960766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798363411978848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9249c72110f4038b2b0c873d6c3834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114647620505439444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798363411978848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7641ad4cfdc46ae9d76869670c1966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageRate: 1
 --- !u!114 &114813203170243930
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,7 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4437e2accd64bd1a520ab7aa95ad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114893238158481898
+  velocityDebug: {x: 0, y: 0}
+--- !u!114 &114819929536885184
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,12 +169,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798363411978848}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9249c72110f4038b2b0c873d6c3834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114893238158481898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798363411978848}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c17da4ed9e8a4e71b5e12176bc3fae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enable: 0
   destination: {fileID: 0}
-  speed: 15
+  speed: 50
 --- !u!212 &212049911927699120
 SpriteRenderer:
   m_ObjectHideFlags: 1

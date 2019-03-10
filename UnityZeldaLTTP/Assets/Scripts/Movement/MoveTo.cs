@@ -2,7 +2,6 @@
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveTo : MonoBehaviour {
-    public bool enable = false;
     public Transform destination;
     public float speed = 15f;
 
@@ -21,7 +20,7 @@ public class MoveTo : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (!enable)
+        if (destination == null)
         {
             return;
         }

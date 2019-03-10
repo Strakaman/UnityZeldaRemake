@@ -6,7 +6,7 @@
 public class UnawareWalk : MonoBehaviour {
     public float moveCountdown = 5f;
     public float moveTime = 3f;
-    public float speed = 15f;
+    public float speed = 50f;
 
     private Vector2 appliedForce;
     private float _startTimer;

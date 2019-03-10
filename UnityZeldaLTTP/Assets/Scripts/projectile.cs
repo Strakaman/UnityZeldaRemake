@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour { 
     public LayerMask collisionMask;
 	float speed = 10;
-    float damage = 1;
+    int damage = 1;
 
 	public void setSpeed (float newSpeed ) {
 		speed = newSpeed;
@@ -32,6 +32,7 @@ public class Projectile : MonoBehaviour {
 		if (damageableObject != null) {
 			damageableObject.TakeHit(damage, hitPoint, transform.forward);
 		}
-		GameObject.Destroy (gameObject);
+        Destroy(gameObject);
+
 	}
 }
