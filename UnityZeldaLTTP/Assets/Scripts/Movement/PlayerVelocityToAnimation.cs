@@ -11,7 +11,10 @@ public class PlayerVelocityToAnimation : MonoBehaviour
     private bool attack;
     private bool moving;
 
-
+    void Awake()
+    {
+        GameData.RegisterPlayerObj(gameObject);
+    }
 
     // Use this for initialization
     void Start()
@@ -19,7 +22,6 @@ public class PlayerVelocityToAnimation : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        GameData.RegisterPlayerObj(gameObject);
     }
 
     // Update is called once per frame
