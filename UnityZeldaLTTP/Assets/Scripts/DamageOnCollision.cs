@@ -10,14 +10,14 @@ public class DamageOnCollision : MonoBehaviour
     private Transform _transform;
 
 	// Use this for initialization
-	void Start ()
-    {
+	void Start()
+   {
         _transform = GetComponent<Transform>();
 	}
 	
 	// Update is called once per frame
-	void Update ()
-    {
+	void Update()
+   {
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -24,7 +24,7 @@ public class PurpleSwordSoldierController : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         _sightFilter.layerMask = LayerMask.GetMask(TagStrings.ENVIRONMENT_LAYER_NAME);
         _sightFilter.useLayerMask = true;
@@ -40,6 +40,7 @@ public class PurpleSwordSoldierController : MonoBehaviour {
             _moveToController.destination = _player.transform;
         }
         _animator.enabled = false;
+        _moveToController.enabled = false;
         _unawareWalkController.enabled = true;
         _recheckTimer = RECHECK_FREQUENCY;
         _soldierState = State.IDLE_WALKING;
@@ -57,16 +58,29 @@ public class PurpleSwordSoldierController : MonoBehaviour {
             switch (_soldierState)
             {
                 case State.IDLE_WALKING:
+                    if (canSeePlayer)
+                    {
+                        _soldierState = State.CHASING_PLAYER;
+                        _unawareWalkController.enabled = false;
+                        _animator.enabled = true;
+                        _moveToController.enabled = true;
 
+                    }
                     break;
-                case State.LOOKING_FOR_PLAYER:
+                case State.LOOKING_FOR_PLAYER: // not currently used
 
                     break;
                 case State.SAW_PLAYER:
 
                     break;
                 case State.CHASING_PLAYER:
-
+                    if (!canSeePlayer)
+                    {
+                        _soldierState = State.IDLE_WALKING;
+                        _animator.enabled = false;
+                        _moveToController.enabled = false;
+                        _unawareWalkController.enabled = true;
+                    }
                     break;
             }
         }

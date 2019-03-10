@@ -8,7 +8,7 @@ public class UnawareWalk : MonoBehaviour {
     public float moveTime = 3f;
     public float speed = 50f;
 
-    private Vector2 appliedForce;
+    private Vector2 _appliedForce;
     private float _startTimer;
     private float _endTimer;
     private Transform _transform;
@@ -36,8 +36,8 @@ public class UnawareWalk : MonoBehaviour {
         if (_startTimer < 0)
         {
             Vector2 dir = GetRandom2DDirection();
-            appliedForce = dir * speed;
-            _rigidbody.AddForce(appliedForce);
+            _appliedForce = dir * speed;
+            _rigidbody.AddForce(_appliedForce);
 
             _animator.enabled = true;
             _startTimer = DISABLE_TIMER; // "disable" start timer
@@ -47,8 +47,21 @@ public class UnawareWalk : MonoBehaviour {
         if (_endTimer < 0)
         {
             _animator.enabled = false;
-            _rigidbody.AddForce(-appliedForce);
+            _rigidbody.AddForce(-_appliedForce);
+            _appliedForce = Vector2.zero;
             _startTimer = moveCountdown + Random.value; // fuzz the timers a bit
+            _endTimer = DISABLE_TIMER;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_appliedForce != Vector2.zero)
+        {
+            _rigidbody.AddForce(-_appliedForce);
+            _appliedForce = Vector2.zero;
+
+            _startTimer = moveCountdown * Random.value; // fuzz the initial timer
             _endTimer = DISABLE_TIMER;
         }
     }

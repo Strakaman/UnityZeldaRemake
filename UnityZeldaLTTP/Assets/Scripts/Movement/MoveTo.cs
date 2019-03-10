@@ -30,4 +30,10 @@ public class MoveTo : MonoBehaviour {
         _force = direction.normalized * speed;
         _rigidbody.AddForce(_force);
     }
+
+    private void OnDisable()
+    {
+        _rigidbody.AddForce(-_force);
+        _force = Vector2.zero;
+    }
 }

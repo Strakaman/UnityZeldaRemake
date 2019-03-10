@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114169266014603958}
   - component: {fileID: 114138057937286702}
   - component: {fileID: 114729953793312758}
+  - component: {fileID: 114973051581604090}
   m_Layer: 8
   m_Name: GreenUnawareSoldier
   m_TagString: Untagged
@@ -148,6 +149,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 2
   health: 0
+--- !u!114 &114973051581604090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976700129659344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7641ad4cfdc46ae9d76869670c1966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageRate: 1
 --- !u!212 &212576499667770110
 SpriteRenderer:
   m_ObjectHideFlags: 1
