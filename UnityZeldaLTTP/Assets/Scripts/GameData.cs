@@ -28,5 +28,10 @@ static class GameData
     {
         playerRefObj = go;
     }
+
+    public static Vector2 leftVector = new Vector2(-1, 0);
+    public static Vector2 rightVector = new Vector2(1, 0);
+    public static Vector2 upVector = new Vector2(0, 1);
+    public static Vector2 downVector = new Vector2(0, -1);
 }
 

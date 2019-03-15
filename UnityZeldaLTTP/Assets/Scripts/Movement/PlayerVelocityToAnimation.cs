@@ -11,6 +11,8 @@ public class PlayerVelocityToAnimation : MonoBehaviour
     private bool attack;
     private bool moving;
 
+    public Collider2D meleeAttackCollider;
+
     void Awake()
     {
         GameData.RegisterPlayerObj(gameObject);
@@ -33,13 +35,7 @@ public class PlayerVelocityToAnimation : MonoBehaviour
 
         if (Input.GetButtonDown("Attack"))
         {
-            attack = true;
-            animator.SetBool("isAttacking", true);
-        }
-        if (Input.GetButtonUp("Attack"))
-        {
-            attack = false;
-            animator.SetBool("isAttacking", false);
+            Attack();
         }
 
         if (velocity == Vector2.zero)
@@ -48,35 +44,26 @@ public class PlayerVelocityToAnimation : MonoBehaviour
             animator.SetBool("isMoving", false);
             //return;
         }
-
-        // Set animation
+        // Update based on which direction player is moving
         else if (Vector2.Angle(Vector2.down, velocity) < 45f)
         {
-            moving = true;
-            animator.SetBool("isMoving", true);
-            animator.SetInteger("Direction", 0);
-            //_spriteRenderer.flipX = false;
+            SetMovingDirection(Direction.Down);
+            meleeAttackCollider.transform.localPosition = GameData.downVector;
         }
         else if (Vector2.Angle(Vector2.up, velocity) < 45f)
         {
-            moving = true;
-            animator.SetBool("isMoving", true);
-            animator.SetInteger("Direction", 2);
-            //_spriteRenderer.flipX = false;
+            SetMovingDirection(Direction.Up);
+            meleeAttackCollider.transform.localPosition = GameData.upVector;
         }
         else if (Vector2.Angle(Vector2.left, velocity) < 45f)
         {
-            moving = true;
-            animator.SetBool("isMoving", true);
-            animator.SetInteger("Direction", 1);
-            //_spriteRenderer.flipX = false;
+            SetMovingDirection(Direction.Left);
+            meleeAttackCollider.transform.localPosition = GameData.leftVector;
         }
         else if (Vector2.Angle(Vector2.right, velocity) < 45f)
         {
-            moving = true;
-            animator.SetBool("isMoving", true);
-            animator.SetInteger("Direction", 3);
-            //_spriteRenderer.flipX = true;
+            SetMovingDirection(Direction.Right);
+            meleeAttackCollider.transform.localPosition = GameData.rightVector;
         }
 
         if (moving == true)
@@ -85,6 +72,31 @@ public class PlayerVelocityToAnimation : MonoBehaviour
         }
     }
 
+
+    void Attack()
+    {
+        if (!attack)
+        {
+            attack = true;
+            animator.SetBool("isAttacking", true);
+            meleeAttackCollider.gameObject.SetActive(true);
+            Invoke("StopAttacking", .5f);
+        }
+    }
+
+    void StopAttacking()
+    {
+        attack = false;
+        animator.SetBool("isAttacking", false);
+        meleeAttackCollider.gameObject.SetActive(false);
+    }
+
+    void SetMovingDirection(Direction dir)
+    {
+        moving = true;
+        animator.SetBool("isMoving", true);
+        animator.SetInteger("Direction", (int)dir);
+    }
     /*
     private void FixedUpdate()
     {
