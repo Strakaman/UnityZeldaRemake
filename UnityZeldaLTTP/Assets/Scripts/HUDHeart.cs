@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HUDHeart : MonoBehaviour {
+public class HUDHeart : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Image mi_corazon;
+
+    void Awake()
+    {
+        mi_corazon = GetComponent<Image>();
+    }
+
 }
